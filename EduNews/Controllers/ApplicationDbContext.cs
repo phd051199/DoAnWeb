@@ -8,6 +8,5 @@ namespace EduNews.Controllers
 {
     public class ApplicationDbContext : DbContext
     {
-
     }
 }
