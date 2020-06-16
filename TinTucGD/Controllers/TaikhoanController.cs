@@ -7,15 +7,18 @@ using TinTucGD.Models;
 
 namespace TinTucGD.Controllers
 {
-    public class NewsController : Controller
+    public class TaikhoanController : Controller
     {
         dbQLTintucDataContext data = new dbQLTintucDataContext();
-        // GET: News
-   
-        public ActionResult Index()
+        public ActionResult DangKy()
         {
             return View();
         }
 
+        // GET: Taikhoan
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }
