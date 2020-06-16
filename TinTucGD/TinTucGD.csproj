@@ -187,9 +187,9 @@
       <LastGenOutput>dbQLTintuc.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Models\dbQLTintuc.dbml.layout">
+    <None Include="Models\dbQLTintuc.dbml.layout">
       <DependentUpon>dbQLTintuc.dbml</DependentUpon>
-    </Content>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
