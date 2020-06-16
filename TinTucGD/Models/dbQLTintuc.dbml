@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLWEBGIAODUC" Class="dbQLTintucDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-MGAVRHB\SQLEXPRESS;Initial Catalog=QLWEBGIAODUC;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLWEBGIAODUCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LOAIBAIVIET" Member="LOAIBAIVIETs">
+    <Type Name="LOAIBAIVIET">
+      <Column Name="MaLoai" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LOAIBAIVIET_BAIVIET" Member="BAIVIETs" ThisKey="MaLoai" OtherKey="MaLoai" Type="BAIVIET" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ADMIN" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="UserAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PasswordAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BAIVIET" Member="BAIVIETs">
+    <Type Name="BAIVIET">
+      <Column Name="MaBaiViet" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TuaDe" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="TomTatND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MaLoai" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="BAIVIET_BINHLUAN" Member="BINHLUANs" ThisKey="MaBaiViet" OtherKey="MaBaiViet" Type="BINHLUAN" />
+      <Association Name="BAIVIET_CHITIETBAIVIET" Member="CHITIETBAIVIETs" ThisKey="MaBaiViet" OtherKey="MaBaiViet" Type="CHITIETBAIVIET" />
+      <Association Name="LOAIBAIVIET_BAIVIET" Member="LOAIBAIVIET" ThisKey="MaLoai" OtherKey="MaLoai" Type="LOAIBAIVIET" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BINHLUAN" Member="BINHLUANs">
+    <Type Name="BINHLUAN">
+      <Column Name="MaBinhLuan" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgayBinhLuan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaBaiViet" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MaDocGia" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="BAIVIET_BINHLUAN" Member="BAIVIET" ThisKey="MaBaiViet" OtherKey="MaBaiViet" Type="BAIVIET" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="DOCGIA_BINHLUAN" Member="DOCGIA" ThisKey="MaDocGia" OtherKey="MaDocGia" Type="DOCGIA" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHITIETBAIVIET" Member="CHITIETBAIVIETs">
+    <Type Name="CHITIETBAIVIET">
+      <Column Name="MaBaiViet" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="NoiDungChinh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgayDang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AnhBaiViet" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="BAIVIET_CHITIETBAIVIET" Member="BAIVIET" ThisKey="MaBaiViet" OtherKey="MaBaiViet" Type="BAIVIET" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DOCGIA" Member="DOCGIAs">
+    <Type Name="DOCGIA">
+      <Column Name="MaDocGia" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTenDayDu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TaiKhoan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DOCGIA_BINHLUAN" Member="BINHLUANs" ThisKey="MaDocGia" OtherKey="MaDocGia" Type="BINHLUAN" />
+    </Type>
+  </Table>
+</Database>
