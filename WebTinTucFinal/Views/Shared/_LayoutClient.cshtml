@@ -18,7 +18,8 @@
 
     <script src="/Assets/Client/js/JQueryV1.9.1.js"></script>
 
-    <link href="/Assets/Client/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/Assets/Client/css/bootstrap.min.css" rel="stylesheet" />
     <!-- for fontawesome icon css file -->
     <link href="/Assets/Client/css/font-awesome.min.css" rel="stylesheet">
     <!-- for content animate css file -->
@@ -81,14 +82,12 @@
         <div id="navarea">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="container-fluid">
-                    @Html.Action("Chuyenmuc", "News");
-
+                    @Html.Action("Chuyenmuc", "News")
                 </div><!--/.container-fluid -->
             </nav>
         </div>
         <!-- start site main content -->
         <section id="mainContent">
-
             @RenderBody()
             <!-- start main content top -->
 
