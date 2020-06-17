@@ -27,7 +27,7 @@ namespace TinTucGD.Controllers
             var model = l.Skip(pageNo * pageSize).Take(pageSize).ToList();
             return PartialView(model);
         }
-        public ViewResult BaiVietTheoLoai(string maLoai = "01")
+        public ViewResult BaiVietTheoLoai(string maLoai = "1")
         {
 
             LOAIBAIVIET l = data.LOAIBAIVIETs.SingleOrDefault(n => n.MaLoai == maLoai);

@@ -134,6 +134,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiBaiVietController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\TaikhoanController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
@@ -235,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LoaiBaiViet\" />
     <Folder Include="Views\Taikhoan\" />
   </ItemGroup>
   <ItemGroup>
