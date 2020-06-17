@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLTINTUCGIAODUC" Class="dbQLTintucDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-JS828RS\SQLEXPRESS;Initial Catalog=QLTINTUCGIAODUC;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLTINTUCGIAODUCConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.THELOAI" Member="THELOAIs">
+    <Type Name="THELOAI">
+      <Column Name="IDTheLoai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTheLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UrlRequire" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="THELOAI_BAIDANG" Member="BAIDANGs" ThisKey="IDTheLoai" OtherKey="IDTheLoai" Type="BAIDANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="IDTaiKhoan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="AnhDaiDien" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TrangThaiNguoiDung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QuyenHan" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="TAIKHOAN_BAIDANG" Member="BAIDANGs" ThisKey="IDTaiKhoan" OtherKey="IDTaiKhoan" Type="BAIDANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHUYENMUC" Member="CHUYENMUCs">
+    <Type Name="CHUYENMUC">
+      <Column Name="IDCM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDCMCha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenCM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BAIDANG" Member="BAIDANGs">
+    <Type Name="BAIDANG">
+      <Column Name="IDBaiDang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenBaiDang" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="UrlRequire" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AnhDaiDien" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IDTaiKhoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgayDang" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TrangThaiBaiDang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDTheLoai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TAIKHOAN_BAIDANG" Member="TAIKHOAN" ThisKey="IDTaiKhoan" OtherKey="IDTaiKhoan" Type="TAIKHOAN" IsForeignKey="true" />
+      <Association Name="THELOAI_BAIDANG" Member="THELOAI" ThisKey="IDTheLoai" OtherKey="IDTheLoai" Type="THELOAI" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
