@@ -77,3 +77,7 @@ C:\Users\user\source\repos\LT_Web\TinTucGD\obj\Debug\TinTucGD.csproj.CoreCompile
 C:\Users\user\source\repos\LT_Web\TinTucGD\obj\Debug\TinTucGD.csproj.CopyComplete
 C:\Users\user\source\repos\LT_Web\TinTucGD\obj\Debug\TinTucGD.dll
 C:\Users\user\source\repos\LT_Web\TinTucGD\obj\Debug\TinTucGD.pdb
+C:\Users\user\source\repos\LT_Web\TinTucGD\bin\DocumentFormat.OpenXml.dll
+C:\Users\user\source\repos\LT_Web\TinTucGD\bin\System.IO.Packaging.dll
+C:\Users\user\source\repos\LT_Web\TinTucGD\bin\DocumentFormat.OpenXml.xml
+C:\Users\user\source\repos\LT_Web\TinTucGD\bin\System.IO.Packaging.xml

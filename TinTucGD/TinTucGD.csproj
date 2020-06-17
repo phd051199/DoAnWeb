@@ -231,11 +231,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutTrangChu.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\TrangChu\TrangChu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Taikhoan\" />
-    <Folder Include="Views\TrangChu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
