@@ -9,10 +9,12 @@ namespace WebTinTucFinal.Controllers
 {
     public class DocBaoController : Controller
     {
+        dbQLTintucDataContext data = new dbQLTintucDataContext();
         // GET: DocBao
-        public ActionResult Index()
+        public ActionResult Baiviet(int id)
         {
-            return View();
+            var ndbaiviet = from ndbv in data.BAIDANGs where ndbv.IDBaiDang == id select ndbv;
+            return View(ndbaiviet);
         }
     }
 }

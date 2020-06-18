@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebTinTucFinal.Models;
-using System.Data.Entity;
 
 namespace WebTinTucFinal.Controllers
 {
@@ -19,11 +18,6 @@ namespace WebTinTucFinal.Controllers
             return PartialView(chuyenmuc);
         }
 
-        public ActionResult TinTheoChuyenmuc( int id)
-        {
-            var tintuc = from t in data.BAIDANGs where t.IDBaiDang == id select t;
-            return View(tintuc);
-        }
         //Lấy tất cả bài đăng ra
         public List<BAIDANG> AllPost()
         {
@@ -51,7 +45,6 @@ namespace WebTinTucFinal.Controllers
             var baiviet = from bv in data.BAIDANGs where bv.IDTheLoai == id select bv;
             return View(baiviet);
         }
-
 
     }
 }

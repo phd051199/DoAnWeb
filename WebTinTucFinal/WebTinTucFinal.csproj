@@ -347,11 +347,10 @@
     <Content Include="Views\News\Chuyenmuc.cshtml" />
     <Content Include="Views\News\TinTheoTheLoai.cshtml" />
     <Content Include="Views\News\Baidangmoinhat.cshtml" />
+    <Content Include="Views\DocBao\Baiviet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\asd\" />
-    <Folder Include="Views\DocBao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
