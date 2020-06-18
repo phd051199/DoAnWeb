@@ -1,0 +1,182 @@
+﻿@*@model IEnumerable<WebTinTucFinal.Models.BAIDANG>*@
+@using WebTinTucFinal.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<BAIDANG>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var listduhoc = (List<BAIDANG>)ViewBag.duhoc;
+    var listthd = (List<BAIDANG>)ViewBag.thd;
+    var listts = (List<BAIDANG>)ViewBag.ts;
+    var listgd4 = (List<BAIDANG>)ViewBag.gd4;
+    var list1 = (List<BAIDANG>)ViewBag.list1;
+    var list2345 = (List<BAIDANG>)ViewBag.list2345;
+
+}
+
+<h2>TRANG CHỦ</h2>
+<div class="content_top">
+    <div class="row top5news">
+
+        <!-- BÀI ĐĂNG MỚI NHẤT_TOP1 -->
+        <div class="col-lg-6 col-md-6 col-sm6 newsstop1">
+            <div class="latest_slider">
+                <!-- Set up your HTML -->
+                <div class="slick_slider">
+                    <div class="single_iteam">
+                        @foreach (var item1 in list1)
+                        {
+                            <a class="slider_tittle" title="@item1.TenBaiDang" href="@Url.Action("Baiviet","DocBao",new { id = item1.IDBaiDang})">
+                                <img class="img_top1_home" src="@item1.AnhDaiDien" alt="img">
+                                <h4>
+                                    @item1.TenBaiDang
+                                </h4>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End content top latest slider -->
+        <!-- BÀI ĐĂNG MỚI NHẤT_TOP từ 2 đến 4 -->
+        <div class="col-lg-6 col-md-6 col-sm6 newsstop1">
+            <div class="content_top_right">
+                <ul class="featured_nav wow fadeInDown">
+
+                    @foreach (var item in list2345)
+                    {
+                        <li>
+                            <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" title="@item.TenBaiDang">
+                                <img class="img_topn_home" src="@item.AnhDaiDien" alt="@item.TenBaiDang">
+                                <div class="title_caption">
+                                    @item.TieuDe
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content_bottom">
+    <div class="col-lg-8 col-md-8">
+        <!-- start content bottom left -->
+        <div class="content_bottom_left">
+            <!--Nghiên cứu khoa học -->
+            <div class="single_category wow fadeInDown">
+                <h2>
+                    <a class="title_text" href="#">Tuyển sinh</a>
+                </h2>
+                @foreach (var item in listts)
+                {
+                    <div class="business_category_left wow fadeInDown animated">
+                        <ul class="fashion_catgnav">
+                            <li>
+                                <div class="catgimg2_container">
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
+                                </div>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            <!--Tin tức -->
+            <div class="single_category wow fadeInDown">
+                <h2>
+                    <a class="title_text" href="#">Tin tức học đường</a>
+                </h2>
+
+                @foreach (var item in listthd)
+                {
+                    <div class="business_category_left wow fadeInDown animated">
+                        <ul class="fashion_catgnav">
+                            <li>
+                                <div class="catgimg2_container">
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
+                                </div>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            <!--Tuyển sinh-->
+            <div class="single_category wow fadeInDown">
+                <h2>
+                    <a class="title_text" href="#">Du học</a>
+                </h2>
+
+                @foreach (var item in listduhoc)
+                {
+                    <div class="business_category_left wow fadeInDown animated">
+                        <ul class="fashion_catgnav">
+                            <li>
+                                <div class="catgimg2_container">
+                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@item.AnhDaiDien"></a>
+                                </div>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+
+            <!--Gd 4.0-->
+            <div class="single_category wow fadeInDown">
+                <h2>
+                    <a class="title_text" href="#">Giáo dục 4.0</a>
+                </h2>
+
+                @foreach (var item in listgd4)
+                {
+
+                    <div class="business_category_left wow fadeInDown animated">
+                        <ul class="fashion_catgnav">
+                            <li>
+                                <div class="catgimg2_container">
+                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@item.AnhDaiDien"></a>
+                                </div>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            
+
+            <!-- End business category -->
+        </div><!--End content_bottom_left-->
+    </div>
+
+
+    <!-- start content bottom right -->
+    <div class="col-lg-4 col-md-4">
+        <div class="content_bottom_right">
+            <!-- start single bottom rightbar -->
+            <div class="single_bottom_rightbar">
+                <h2>BÀI XEM NHIỀU</h2>
+                <ul class="small_catg popular_catg wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            <div class="media wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+                                <div class="img_post_right">
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" class="media-left">
+                                        <img alt="img" src="@item.AnhDaiDien">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"> @item.TenBaiDang</a></h4>
+                                    <p> @item.TieuDe</p>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- start content bottom right -->
+</div>

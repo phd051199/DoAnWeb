@@ -1,0 +1,138 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<title></title>*@
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap -->
+    @RenderSection("pagetitle", required: false)
+
+
+
+    <script src="/Assets/Client/js/JQueryV1.9.1.js"></script>
+
+
+    <link href="~/Assets/Client/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- for fontawesome icon css file -->
+    <link href="/Assets/Client/css/font-awesome.min.css" rel="stylesheet">
+    <!-- for content animate css file -->
+    <link rel="/Assets/Client/stylesheet" href="css/animate.css">
+    <!-- google fonts  -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <!-- slick slider css file -->
+    <link href="/Assets/Client/css/slick.css" rel="stylesheet">
+    <!-- <link href="css/theme-red.css" rel="stylesheet"> -->
+    <link href="/Assets/Client/css/theme.css" rel="stylesheet">
+    <!-- main site css file -->
+    <link href="/Assets/Client/style.css" rel="stylesheet">
+
+    @*facebook comment responsive*@
+    <style>
+        .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style], .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] {
+            width: 100% !important;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+
+    <div class="container">
+
+
+
+        <!-- start header area -->
+        <header id="header">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <!-- start header bottom -->
+                    <div class="header_bottom">
+                        <div class="header_bottom_left">
+                            <a class="logo" href="/News/Index/">
+                                EDU<strong>NEW</strong> <span style="font-family: Arial;">GIÁO DỤC</span>
+                            </a>
+                        </div>
+
+                        <div class="header_top_right">
+                            <form class="search_form">
+                                <input type="search" class="form-control" placeholder="Tìm kiếm trên EDUNEW . . ." id="txtSearch" name="txtSearch">
+                                <span class="glyphicon glyphicon-search submit" aria-hidden="true">    </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header><!-- End header area -->
+        <!-- Static navbar -->
+        <div id="navarea">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    @Html.Action("Chuyenmuc", "News")
+                </div><!--/.container-fluid -->
+            </nav>
+        </div>
+        <!-- start site main content -->
+        <section id="mainContent">
+            @RenderBody()
+            <!-- start main content top -->
+
+        </section>
+    </div>
+
+
+
+
+
+    <footer id="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="single_footer_top wow fadeInRight">
+                            <h2>http://giaoduc.edunew.edu.vn/</h2>
+                            <p>Đồ án <br /> Đinh Hoàng Hiếu <br /> Phạm Hữu Duy<br />Trịnh Xuân Đạt<br /></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="single_footer_top wow fadeInRight">
+                            <h2>Thành viên</h2>
+                            <a href="/News/Dangky" class="footer_link" target="_blank">Đăng kí thành viên</a> <br />
+                            <a href="/Admin/Dangnhap/" class="footer_link" target="_blank">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="/Assets/Client/js/JQueryV1.9.1.js"></script>
+    <!-- jQuery google CDN Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- For content animatin  -->
+    <script src="/Assets/Client/js/wow.min.js"></script>
+    <!-- bootstrap js file -->
+    <script src="/Assets/Client/js/bootstrap.min.js"></script>
+    <!-- slick slider js file -->
+    <script src="/Assets/Client/js/slick.min.js"></script>
+
+    <!-- custom js file include -->
+    <script src="/Assets/Client/js/custom.js"></script>
+
+
+</body>
+</html>
