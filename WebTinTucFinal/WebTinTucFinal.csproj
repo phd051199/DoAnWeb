@@ -203,6 +203,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Common\CommonConstant.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\RewriteURL.cs" />
+    <Compile Include="Common\UserInfo.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DocBaoController.cs" />
@@ -2124,9 +2128,9 @@
     <Content Include="Views\News\Chuyenmuc.cshtml" />
     <Content Include="Views\News\TinTheoTheLoai.cshtml" />
     <Content Include="Views\DocBao\Baiviet.cshtml" />
-    <Content Include="Views\News\Baidangmoinhat.cshtml" />
     <Content Include="Views\News\Dangky.cshtml" />
     <Content Include="Views\Admin\Dangnhap.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
