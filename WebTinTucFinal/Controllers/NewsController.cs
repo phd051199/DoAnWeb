@@ -13,7 +13,6 @@ namespace WebTinTucFinal.Controllers
         // GET: News
         dbQLTintucDataContext data = new dbQLTintucDataContext();
        
-
         public ActionResult Chuyenmuc()
         {
             var chuyenmuc = from cm in data.CHUYENMUCs select cm;
@@ -30,6 +29,7 @@ namespace WebTinTucFinal.Controllers
         {
             return data.BAIDANGs.OrderByDescending(x => x.IDBaiDang).ToList();
         }
+        //
         public List<BAIDANG> MoiNhat()
         {
             return data.BAIDANGs.OrderByDescending(x => x.NgayDang).ToList();
@@ -45,11 +45,13 @@ namespace WebTinTucFinal.Controllers
             var moinhat = MoiNhat();
             return View(moinhat);
         }
+        //Tin theo the loai
        public ActionResult TinTheoTheLoai(int id)
         {
             var baiviet = from bv in data.BAIDANGs where bv.IDTheLoai == id select bv;
             return View(baiviet);
         }
+
 
     }
 }
