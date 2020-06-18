@@ -5,6 +5,13 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
+    var listdt = (List<BAIDANG>)ViewBag.dt;
+    var listnckh = (List<BAIDANG>)ViewBag.nckh;
+    var listthd = (List<BAIDANG>)ViewBag.thd;
+    var listts = (List<BAIDANG>)ViewBag.ts;
+    var listgd4 = (List<BAIDANG>)ViewBag.gd4;
+    var list1 = (List<BAIDANG>)ViewBag.list1;
+    var list2345 = (List<BAIDANG>)ViewBag.list2345;
 
 }
 
@@ -18,7 +25,7 @@
                 <!-- Set up your HTML -->
                 <div class="slick_slider">
                     <div class="single_iteam">
-                        @foreach (var item1 in Model)
+                        @foreach (var item1 in list1)
                         {
                             <a class="slider_tittle" title="@item1.TenBaiDang" href="@Url.Action("Baiviet","DocBao",new { id = item1.IDBaiDang})">
                                 <img class="img_top1_home" src="@item1.AnhDaiDien" alt="img">
@@ -36,7 +43,7 @@
             <div class="content_top_right">
                 <ul class="featured_nav wow fadeInDown">
 
-                    @foreach (var item in Model)
+                    @foreach (var item in list2345)
                     {
                         <li>
                             <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" title="@item.TenBaiDang">
@@ -62,7 +69,7 @@
                 <h2>
                     <a class="title_text" href="#">Nghiên cứu khoa học</a>
                 </h2>
-                @foreach (var item in Model)
+                @foreach (var item in listnckh)
                 {
                     <div class="business_category_left wow fadeInDown animated">
                         <ul class="fashion_catgnav">
@@ -82,7 +89,7 @@
                     <a class="title_text" href="#">Tin tức học đường</a>
                 </h2>
 
-                @foreach (var item in Model)
+                @foreach (var item in listthd)
                 {
                     <div class="business_category_left wow fadeInDown animated">
                         <ul class="fashion_catgnav">
@@ -102,13 +109,13 @@
                     <a class="title_text" href="#">Tuyển sinh</a>
                 </h2>
 
-                @foreach (var item in Model)
+                @foreach (var item in listts)
                 {
                     <div class="business_category_left wow fadeInDown animated">
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@item.AnhDaiDien"></a>
                                 </div>
                                 <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
@@ -117,27 +124,28 @@
                 }
             </div>
 
-            <!--Giới thiệu-->
-            @*<div class="single_category wow fadeInDown">
+            <!--Gd 4.0-->
+            <div class="single_category wow fadeInDown">
                 <h2>
-                    <a class="title_text" href="#">Giới thiệu</a>
+                    <a class="title_text" href="#">Giáo dục 4.0</a>
                 </h2>
 
-                @foreach (var item in Model)
+                @foreach (var item in listgd4)
                 {
+
                     <div class="business_category_left wow fadeInDown animated">
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@item.AnhDaiDien"></a>
                                 </div>
                                 <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
                         </ul>
                     </div>
                 }
-            </div>*@
-
+            </div>
+            
 
             <!-- End business category -->
         </div><!--End content_bottom_left-->
