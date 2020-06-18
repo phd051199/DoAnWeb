@@ -92,5 +92,74 @@ namespace WebTinTucFinal.Controllers
             return View(baiviet);
         }
 
+        public ActionResult Dangky()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult Dangky(FormCollection collection, TAIKHOAN tk)
+        {
+            var hoten = collection["HotenDG"];
+            var tendn = collection["TenDN"];
+            var matkhau = collection["Matkhau"];
+            var gt = collection["Gioitinh"];
+            var email = collection["Email"];
+            var diachi = collection["Diachi"];
+            var dienthoai = collection["Dienthoai"];
+            var ngaysinh = String.Format("{0:MM/dd/yyyy}", collection["Ngaysinh"]);
+            var image = collection["Image"];
+
+
+            if (String.IsNullOrEmpty(hoten))
+            {
+                ViewData["Loi1"] = "Họ tên độc giả không được để trống";
+            }
+            else if (String.IsNullOrEmpty(tendn))
+            {
+                ViewData["Loi2"] = "Chưa nhập tên đăng nhập";
+            }
+            else if (String.IsNullOrEmpty(matkhau))
+            {
+                ViewData["Loi3"] = "Chưa nhập mật khẩu";
+            }
+            else if (String.IsNullOrEmpty(gt))
+            {
+                ViewData["Loi4"] = "Giới tính không nên để trống";
+            }
+            else if (String.IsNullOrEmpty(email))
+            {
+                ViewData["Loi5"] = "Email không được để trống";
+            }
+            else if (String.IsNullOrEmpty(diachi))
+            {
+                ViewData["Loi6"] = "Chưa nhập địa chỉ";
+            }
+            else if (String.IsNullOrEmpty(dienthoai))
+            {
+                ViewData["Loi7"] = "Điện thoại không nên để trống";
+            }
+            else
+            {
+                tk.HoTen = hoten;
+                tk.TenTaiKhoan = tendn;
+                tk.MatKhau = matkhau;
+                tk.GioiTinh = gt;
+                tk.Email = email;
+                tk.DiaChi = diachi;
+                tk.SDT = dienthoai;
+                tk.AnhDaiDien = image;
+                tk.NgaySinh = DateTime.Parse(ngaysinh);
+                tk.QuyenHan = Char.Parse("U");
+                tk.TrangThaiNguoiDung = "bình thường";
+                data.TAIKHOANs.InsertOnSubmit(tk);
+                data.SubmitChanges();
+                return RedirectToAction("Dangnhap", "Admin");
+            }
+            return this.Dangky();
+        }
+
+
     }
 }
