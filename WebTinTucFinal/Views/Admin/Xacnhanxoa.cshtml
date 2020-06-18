@@ -1,0 +1,86 @@
+﻿@model WebTinTucFinal.Models.BAIDANG
+
+@{
+    ViewBag.Title = "Xacnhanxoa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>Bạn có muốn xoá ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenBaiDang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBaiDang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhDaiDien)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Content/images/"+ Model.AnhDaiDien)" width="120px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTaiKhoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThaiBaiDang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThaiBaiDang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDTheLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDTheLoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Về trang quản lý bài viết", "BaiViet")
+        </div>
+    }
+</div>
