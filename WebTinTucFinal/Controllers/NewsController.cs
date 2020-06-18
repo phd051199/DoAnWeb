@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebTinTucFinal.Models;
+using System.Data.Entity;
 
 namespace WebTinTucFinal.Controllers
 {
@@ -29,14 +30,26 @@ namespace WebTinTucFinal.Controllers
         {
             return data.BAIDANGs.OrderByDescending(x => x.IDBaiDang).ToList();
         }
-        public List<BAIDANG> MoiNhat(int count)
+        public List<BAIDANG> MoiNhat()
         {
-            return data.BAIDANGs.OrderByDescending(x => x.NgayDang).Take(count).ToList();
+            return data.BAIDANGs.OrderByDescending(x => x.NgayDang).ToList();
         }
+ 
         public ActionResult Index()
         {
             var allpost = AllPost();
             return View(allpost);
         }
+        public ActionResult Baidangmoinhat()
+        {
+            var moinhat = MoiNhat();
+            return View(moinhat);
+        }
+       public ActionResult TinTheoTheLoai(int id)
+        {
+            var baiviet = from bv in data.BAIDANGs where bv.IDTheLoai == id select bv;
+            return View(baiviet);
+        }
+
     }
 }

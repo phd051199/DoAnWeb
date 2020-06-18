@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<WebTinTucFinal.Models.BAIDANG>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
+   
 }
 
 <h2>TRANG CHỦ</h2>
@@ -65,29 +67,7 @@
 
 
 
-            <!--____________________________________________________ Đào tạo -->
-            <div class="single_category wow fadeInDown">
-                <h2>
-                    <a class="title_text" href="#">Đào tạo</a>
-                </h2>
-
-                @foreach (var item in Model)
-                {
-                    <div class="business_category_left wow fadeInDown animated">
-                        <ul class="fashion_catgnav">
-                            <li>
-                                <div class="catgimg2_container">
-                                    <a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang"><img alt="img" src="@item.AnhDaiDien"></a>
-                                </div>
-                                <h2 class="catg_titile"><a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang">  @item.TenBaiDang</a></h2>
-                            </li>
-                        </ul>
-                    </div>
-                }
-            </div>
-
-
-
+           
 
             <!--____________________________________________________ Nghiên cứu khoa học -->
             <div class="single_category wow fadeInDown">
