@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
-   
+
 }
 
 <h2>TRANG CHỦ</h2>
@@ -16,12 +16,12 @@
                 <!-- Set up your HTML -->
                 <div class="slick_slider">
                     <div class="single_iteam">
-                        @foreach (var item123 in Model)
+                        @foreach (var item1 in Model)
                         {
-                            <a class="slider_tittle" title="@item123.TenBaiDang" href="/Doc-bao/@item123.UrlRequire-@item123.IDBaiDang" target="_blank">
-                                <img class="img_top1_home" src="@item123.AnhDaiDien" alt="img">
+                            <a class="slider_tittle" title="@item1.TenBaiDang" href="@Url.Action("Baiviet","DocBao",new { id = item1.IDBaiDang})">
+                                <img class="img_top1_home" src="@item1.AnhDaiDien" alt="img">
                                 <h4>
-                                    @item123.TenBaiDang
+                                    @item1.TenBaiDang
                                 </h4>
                             </a>
                         }
@@ -37,7 +37,7 @@
                     @foreach (var item in Model)
                     {
                         <li>
-                            <a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang" title="@item.TenBaiDang" target="_blank">
+                            <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" title="@item.TenBaiDang">
                                 <img class="img_topn_home" src="@item.AnhDaiDien" alt="@item.TenBaiDang">
                                 <div class="title_caption">
                                     @item.TieuDe
@@ -45,31 +45,17 @@
                             </a>
                         </li>
                     }
-
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
-
 <div class="content_bottom">
     <div class="col-lg-8 col-md-8">
         <!-- start content bottom left -->
         <div class="content_bottom_left">
-
-
-
-
-
-
-
-
-
-
-           
-
-            <!--____________________________________________________ Nghiên cứu khoa học -->
+            <!--Nghiên cứu khoa học -->
             <div class="single_category wow fadeInDown">
                 <h2>
                     <a class="title_text" href="#">Nghiên cứu khoa học</a>
@@ -81,19 +67,18 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
                                 </div>
-                                <h2 class="catg_titile"><a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang">  @item.TenBaiDang</a></h2>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
                         </ul>
                     </div>
                 }
             </div>
-
-            <!--____________________________________________________ Tin tức -->
+            <!--Tin tức -->
             <div class="single_category wow fadeInDown">
                 <h2>
-                    <a class="title_text" href="#">Tin tức</a>
+                    <a class="title_text" href="#">Tin tức học đường</a>
                 </h2>
 
                 @foreach (var item in Model)
@@ -102,16 +87,15 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
                                 </div>
-                                <h2 class="catg_titile"><a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang">  @item.TenBaiDang</a></h2>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
                         </ul>
                     </div>
                 }
             </div>
-
-            <!--____________________________________________________ Tuyển sinh-->
+            <!--Tuyển sinh-->
             <div class="single_category wow fadeInDown">
                 <h2>
                     <a class="title_text" href="#">Tuyển sinh</a>
@@ -123,17 +107,17 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
                                 </div>
-                                <h2 class="catg_titile"><a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang">  @item.TenBaiDang</a></h2>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
                         </ul>
                     </div>
                 }
             </div>
 
-            <!--____________________________________________________Giới thiệu-->
-            <div class="single_category wow fadeInDown">
+            <!--Giới thiệu-->
+            @*<div class="single_category wow fadeInDown">
                 <h2>
                     <a class="title_text" href="#">Giới thiệu</a>
                 </h2>
@@ -144,14 +128,14 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
                                 </div>
-                                <h2 class="catg_titile"><a href="/Doc-bao/@item.UrlRequire-@item.IDBaiDang">  @item.TenBaiDang</a></h2>
+                                <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
                         </ul>
                     </div>
                 }
-            </div>
+            </div>*@
 
 
             <!-- End business category -->
@@ -171,17 +155,17 @@
                         <li>
                             <div class="media wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
                                 <div class="img_post_right">
-                                    <a href="/doc-bao/@item.UrlRequire-@item.IDBaiDang" class="media-left">
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" class="media-left">
                                         <img alt="img" src="@item.AnhDaiDien">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="/doc-bao/@item.UrlRequire-@item.IDBaiDang"> @item.TenBaiDang</a></h4>
+                                    <h4 class="media-heading"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"> @item.TenBaiDang</a></h4>
                                     <p> @item.TieuDe</p>
                                 </div>
                             </div>
                         </li>
-}
+                    }
                 </ul>
             </div>
         </div>

@@ -346,8 +346,8 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\Chuyenmuc.cshtml" />
     <Content Include="Views\News\TinTheoTheLoai.cshtml" />
-    <Content Include="Views\News\Baidangmoinhat.cshtml" />
     <Content Include="Views\DocBao\Baiviet.cshtml" />
+    <Content Include="Views\News\Baidangmoinhat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

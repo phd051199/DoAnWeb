@@ -24,7 +24,7 @@ namespace WebTinTucFinal.Controllers
             return data.BAIDANGs.OrderByDescending(x => x.IDBaiDang).ToList();
         }
         //
-        public List<BAIDANG> MoiNhat()
+        public List<BAIDANG> MoiNhat(int i)
         {
             return data.BAIDANGs.OrderByDescending(x => x.NgayDang).ToList();
         }
@@ -36,8 +36,8 @@ namespace WebTinTucFinal.Controllers
         }
         public ActionResult Baidangmoinhat()
         {
-            var moinhat = MoiNhat();
-            return View(moinhat);
+            var moinhat = MoiNhat(4);
+            return PartialView(moinhat);
         }
         //Tin theo the loai
        public ActionResult TinTheoTheLoai(int id)
