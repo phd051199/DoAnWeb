@@ -26,8 +26,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AnhDaiDien)
-        </dt>
+                @Html.DisplayNameFor(model => model.AnhDaiDien)
+            </dt>
 
         <dd>
             <img src="@Url.Content("~/Content/images/"+ Model.AnhDaiDien)" width="120px" />
@@ -75,7 +75,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

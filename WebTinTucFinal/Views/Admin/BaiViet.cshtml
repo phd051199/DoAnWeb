@@ -80,13 +80,13 @@
             <td>
                 @Html.ActionLink("Sửa", "SuaBai", new { id = item.IDBaiDang }) |
                 @Html.ActionLink("Chi tiết", "ChiTietBai", new { id = item.IDBaiDang }) |
-                @Html.ActionLink("Xoá", "Xacnhanxoa", new { id = item.IDBaiDang })
+                @Html.ActionLink("Xoá", "Xoa", new { id = item.IDBaiDang })
             </td>
         </tr>
     }
 
 </table>
- Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+ Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
 <div class="Menu">
     @Html.PagedListPager(Model, page => Url.Action("BaiViet", new { page = page }))
 </div>

@@ -34,7 +34,19 @@ namespace WebTinTucFinal.Controllers
             return View(baidang);
         }
         //xoa bai viet
-        [HttpPost,ActionName ("XoaBaiViet")]
+        [HttpGet]
+        public ActionResult Xoa(int id)
+        {
+            BAIDANG baidang = db.BAIDANGs.SingleOrDefault(n => n.IDBaiDang == id);
+            ViewBag.IDBaiDang = baidang.IDBaiDang;
+            if (baidang == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(baidang);
+        }
+        [HttpPost, ActionName("Xoa")]
         public ActionResult Xacnhanxoa(int id)
         {
             BAIDANG baidang = db.BAIDANGs.SingleOrDefault(n => n.IDBaiDang == id);
