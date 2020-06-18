@@ -1,5 +1,7 @@
-﻿@model IEnumerable<WebTinTucFinal.Models.BAIDANG>
-
+﻿@*@model IEnumerable<WebTinTucFinal.Models.BAIDANG>*@
+@using WebTinTucFinal.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<BAIDANG>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
@@ -60,7 +62,6 @@
                 <h2>
                     <a class="title_text" href="#">Nghiên cứu khoa học</a>
                 </h2>
-
                 @foreach (var item in Model)
                 {
                     <div class="business_category_left wow fadeInDown animated">

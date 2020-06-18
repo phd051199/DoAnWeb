@@ -164,3 +164,7 @@ C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\obj\Debug\WebTinTucFi
 C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\obj\Debug\WebTinTucFinal.csproj.CopyComplete
 C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\obj\Debug\WebTinTucFinal.dll
 C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\obj\Debug\WebTinTucFinal.pdb
+C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\bin\PagedList.dll
+C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\bin\PagedList.Mvc.dll
+C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\bin\PagedList.xml
+C:\Users\user\Source\Repos\phd051199\LT_Web\WebTinTucFinal\bin\PagedList.Mvc.xml
