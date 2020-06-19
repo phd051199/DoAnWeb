@@ -36,7 +36,6 @@
         <div class="form-group">
             @Html.LabelFor(model => model.AnhDaiDien, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               
                 <input type="file" name="fileupload" />
             </div>
         </div>
@@ -44,11 +43,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea name="editor1" id="editor1" rows="50" cols="80">Nội dung</textarea>
-                <script>
-                // Replace the <textarea id="editor1"> with a CKEditor 4
-                // instance, using default configuration.
-                    CKEDITOR.replace('editor1');
+                 @Html.TextAreaFor(model => model.NoiDung, new { @id= "edittor1"})
+                <script type="text/javascript">
+                    CKEDITOR.replace("editor1");
                 </script>
             </div>
         </div>

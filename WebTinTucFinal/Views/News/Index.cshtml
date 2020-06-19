@@ -26,7 +26,7 @@
                         @foreach (var item1 in list1)
                         {
                             <a class="slider_tittle" title="@item1.TenBaiDang" href="@Url.Action("Baiviet","DocBao",new { id = item1.IDBaiDang})">
-                                <img class="img_top1_home" src="@item1.AnhDaiDien" alt="img">
+                                <img class="img_top1_home" src="@Url.Content("~/Content/images/"+ item1.AnhDaiDien)" alt="img">
                                 <h4>
                                     @item1.TenBaiDang
                                 </h4>
@@ -45,7 +45,7 @@
                     {
                         <li>
                             <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" title="@item.TenBaiDang">
-                                <img class="img_topn_home" src="@item.AnhDaiDien" alt="@item.TenBaiDang">
+                                <img class="img_topn_home" src="@Url.Content("~/Content/images/"+ item.AnhDaiDien)" alt="@item.TenBaiDang">
                                 <div class="title_caption">
                                     @item.TieuDe
                                 </div>
@@ -73,7 +73,7 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@Url.Content("~/Content/images/"+ item.AnhDaiDien)"></a>
                                 </div>
                                 <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
@@ -94,7 +94,7 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})"><img alt="img" src="@Url.Content("~/Content/images/"+ item.AnhDaiDien)"></a>
                                 </div>
                                 <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
@@ -115,7 +115,7 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@Url.Content("~/Content/images/"+ item.AnhDaiDien)"></a>
                                 </div>
                                 <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
@@ -138,7 +138,7 @@
                         <ul class="fashion_catgnav">
                             <li>
                                 <div class="catgimg2_container">
-                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@item.AnhDaiDien"></a>
+                                    <a href="@Url.Action("Baiviet","DocBao", new { id = item.IDBaiDang} )"><img alt="img" src="@Url.Content("~/Content/images/"+ item.AnhDaiDien)"></a>
                                 </div>
                                 <h2 class="catg_titile"><a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})">  @item.TenBaiDang</a></h2>
                             </li>
@@ -167,7 +167,7 @@
                             <div class="media wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
                                 <div class="img_post_right">
                                     <a href="@Url.Action("Baiviet","DocBao",new { id = item.IDBaiDang})" class="media-left">
-                                        <img alt="img" src="@item.AnhDaiDien">
+                                        <img alt="img" src="@Url.Content("~/Content/images/"+ item.AnhDaiDien)">
                                     </a>
                                 </div>
                                 <div class="media-body">
