@@ -339,7 +339,6 @@ C:\Users\user\Desktop\LTWeb\WebTinTucFinal\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\user\Desktop\LTWeb\WebTinTucFinal\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\user\Desktop\LTWeb\WebTinTucFinal\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\user\Desktop\LTWeb\WebTinTucFinal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\user\Desktop\LTWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.csprojAssemblyReference.cache
 C:\Users\user\Desktop\LTWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\LTWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.csproj.CopyComplete
 C:\Users\user\Desktop\LTWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.dll
@@ -430,3 +429,4 @@ C:\Users\Administrator\Source\Repos\DoAnWeb\WebTinTucFinal\bin\Microsoft.Owin.Se
 C:\Users\Administrator\Source\Repos\DoAnWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Source\Repos\DoAnWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.dll
 C:\Users\Administrator\Source\Repos\DoAnWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.pdb
+C:\Users\user\Desktop\LTWeb\WebTinTucFinal\obj\Debug\WebTinTucFinal.csprojAssemblyReference.cache

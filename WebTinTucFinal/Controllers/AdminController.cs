@@ -39,7 +39,7 @@ namespace WebTinTucFinal.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Suabaiviet(BAIDANG baidang, HttpPostedFileBase fileupload)
+        public ActionResult Suabaiviet(BAIDANG baidang,HttpPostedFileBase fileupload)
         {
             ViewBag.IDTheLoai = new SelectList(db.THELOAIs.ToList().OrderBy(n => n.TenTheLoai), "IDTheLoai", "TenTheLoai");
             ViewBag.IDTaiKhoan = new SelectList(db.TAIKHOANs.ToList().OrderBy(n => n.TenTaiKhoan), "IDTaiKhoan", "TenTaiKhoan");
@@ -48,22 +48,23 @@ namespace WebTinTucFinal.Controllers
                 ViewBag.ThongBao = "Vui lòng chọn ảnh bìa !";
             }
             else
-            {
-                if (ModelState.IsValid)
                 {
-                    var filename = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Content/images"), filename);
-                    if (System.IO.File.Exists(path))
+                    if (ModelState.IsValid)
                     {
-                        ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                        var filename = Path.GetFileName(fileupload.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/images"), filename);
+                        if (System.IO.File.Exists(path))
+                        {
+                            ViewBag.ThongBao = "Hình ảnh đã tồn tại";
 
-                    }
-                    else
-                    {
-                        fileupload.SaveAs(path);
-                    }
-                    baidang.AnhDaiDien = filename;
-                    UpdateModel(baidang);
+                        }
+                        else
+                        {
+                            fileupload.SaveAs(path);
+                        }
+                        baidang.AnhDaiDien = filename;
+                        BAIDANG bAIDANG = new BAIDANG();
+                    UpdateModel<BAIDANG>(bAIDANG);
                     db.SubmitChanges();
                 }
                 return RedirectToAction("BaiViet");
@@ -95,8 +96,9 @@ namespace WebTinTucFinal.Controllers
                 Response.StatusCode = 404;
                 return null;
             }
-            return RedirectToAction("BaiViet");
+            return View(baidang);
         }
+
         [HttpPost, ActionName("Xoa")]
         public ActionResult Xacnhanxoa(int id)
         {
@@ -195,7 +197,5 @@ namespace WebTinTucFinal.Controllers
             }
             return View();
         }
-
-
     }
 }

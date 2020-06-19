@@ -41,7 +41,7 @@
                         <h4 style="color:red; text-align:center"> @ViewBag.Thongbao</h4>
                     </div>
                     <div class="panel-body">
-                        @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
+                        @using (Html.BeginForm("Dangnhap", "Admin", FormMethod.Post))
                         {
                             @Html.ValidationSummary(false, "", new { @class = "text-danger" });
                             <fieldset>

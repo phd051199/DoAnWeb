@@ -43,10 +43,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea name="Noidung">@Model.NoiDung</textarea>
-                @*@Html.TextAreaFor(model => model.NoiDung, new { @id= "edittor1", @class = "form-control", @row ="200"})
+                @*<textarea name="Noidung">@Model.NoiDung</textarea>*@
+                @Html.TextAreaFor(model => model.NoiDung, new { @id= "edittor1", @class = "form-control", @row ="200"})
                 @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
-                <script>
+                @*<script>
                     CKEDITOR.replace("editor1");
                 </script>*@
             </div>

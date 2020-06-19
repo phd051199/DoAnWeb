@@ -213,6 +213,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1723,21 +1724,42 @@
     <Content Include="Assets\imagesNews\tuyensinh6_1.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\200x150.gif" />
-    <Content Include="Content\images\ad125x125.jpg" />
-    <Content Include="Content\images\ad468x60.gif" />
-    <Content Include="Content\images\background.gif" />
-    <Content Include="Content\images\bullet.gif" />
-    <Content Include="Content\images\search.gif" />
-    <Content Include="Content\images\_thumb1.jpg" />
-    <Content Include="Content\images\_thumb2.jpg" />
-    <Content Include="Content\images\_thumb3.jpg" />
-    <Content Include="Content\images\_thumb4.jpg" />
-    <Content Include="Content\images\_thumb5.jpg" />
-    <Content Include="Content\images\_thumb6.jpg" />
-    <Content Include="Content\images\_thumb7.jpg" />
-    <Content Include="Content\images\_thumb8.jpg" />
-    <Content Include="Content\images\_video.jpg" />
+    <Content Include="Content\images\duhoc1.jpg" />
+    <Content Include="Content\images\duhoc1_1.jpg" />
+    <Content Include="Content\images\duhoc2.jpg" />
+    <Content Include="Content\images\duhoc2_1.jpg" />
+    <Content Include="Content\images\duhoc3.png" />
+    <Content Include="Content\images\duhoc3_1.png" />
+    <Content Include="Content\images\duhoc4.jpg" />
+    <Content Include="Content\images\duhoc4_1.jpg" />
+    <Content Include="Content\images\giaoduc1.jpg" />
+    <Content Include="Content\images\giaoduc1_1.png" />
+    <Content Include="Content\images\giaoduc2.jpg" />
+    <Content Include="Content\images\giaoduc2_1.jpg" />
+    <Content Include="Content\images\giaoduc3.jpg" />
+    <Content Include="Content\images\giaoduc3_1.jpg" />
+    <Content Include="Content\images\giaoduc4.jpg" />
+    <Content Include="Content\images\giaoduc4_1.png" />
+    <Content Include="Content\images\giaoduc5.png" />
+    <Content Include="Content\images\giaoduc5_1.jpg" />
+    <Content Include="Content\images\giaoduc6.png" />
+    <Content Include="Content\images\giaoduc6_1.jpg" />
+    <Content Include="Content\images\hocduong1.jpg" />
+    <Content Include="Content\images\hocduong1_1.jpg" />
+    <Content Include="Content\images\hocduong2.png" />
+    <Content Include="Content\images\hocduong2_1.jpg" />
+    <Content Include="Content\images\hocduong3.jpg" />
+    <Content Include="Content\images\hocduong4.jpg" />
+    <Content Include="Content\images\tuyensinh1.jpg" />
+    <Content Include="Content\images\tuyensinh1_1.jpg" />
+    <Content Include="Content\images\tuyensinh2.jpg" />
+    <Content Include="Content\images\tuyensinh2_1.jpg" />
+    <Content Include="Content\images\tuyensinh3.jpg" />
+    <Content Include="Content\images\tuyensinh4.jpg" />
+    <Content Include="Content\images\tuyensinh5.jpeg" />
+    <Content Include="Content\images\tuyensinh5_1.jpeg" />
+    <Content Include="Content\images\tuyensinh6.jpg" />
+    <Content Include="Content\images\tuyensinh6_1.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2450,6 +2472,7 @@
     <Content Include="Views\Admin\Chitietbai.cshtml" />
     <Content Include="Views\Admin\Xoa.cshtml" />
     <Content Include="Views\Admin\Suabaiviet.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
