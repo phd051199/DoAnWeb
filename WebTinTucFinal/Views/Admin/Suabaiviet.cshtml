@@ -1,20 +1,20 @@
 ﻿@model WebTinTucFinal.Models.BAIDANG
 
 @{
-    ViewBag.Title = "VietBai";
+    ViewBag.Title = "Suabaiviet";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Viết Bài Mới</h2>
+<h2>SUA BAI VIET</h2>
 
-@using (Html.BeginForm("VietBai", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        @Html.HiddenFor(model => model.IDBaiDang)
         <div class="form-group">
             @Html.LabelFor(model => model.TenBaiDang, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -31,6 +31,7 @@
             </div>
         </div>
 
+       
 
         <div class="form-group">
             @Html.LabelFor(model => model.AnhDaiDien, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -42,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <textarea name="Noidung" ></textarea>
+                <textarea name="Noidung">@Model.NoiDung</textarea>
                 @*@Html.TextAreaFor(model => model.NoiDung, new { @id= "edittor1", @class = "form-control", @row ="200"})
                 @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
                 <script>
@@ -63,7 +64,7 @@
             @Html.LabelFor(model => model.NgayDang, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.NgayDang, new { htmlAttributes = new { @class = "form-control" } })*@
-                <input type="date" name="NgayDang"/>
+                <input type="date" name="NgayDang" />
                 @Html.ValidationMessageFor(model => model.NgayDang, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -79,13 +80,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDTheLoai, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-              @Html.DropDownList("IDTheLoai")
+                @Html.DropDownList("IDTheLoai")
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="THÊM MỚI" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

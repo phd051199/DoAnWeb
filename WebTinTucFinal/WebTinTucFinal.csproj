@@ -2449,6 +2449,7 @@
     <Content Include="Views\Admin\VietBai.cshtml" />
     <Content Include="Views\Admin\Chitietbai.cshtml" />
     <Content Include="Views\Admin\Xoa.cshtml" />
+    <Content Include="Views\Admin\Suabaiviet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
