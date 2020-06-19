@@ -1,7 +1,5 @@
 ﻿@model WebTinTucFinal.Models.BAIDANG
 
-
-
 @{
     ViewBag.Title = "VietBai";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -43,10 +41,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                 @Html.TextAreaFor(model => model.NoiDung, new { @id= "edittor1"})
-                <script type="text/javascript">
+                <textarea name="Noidung" >Noi dung</textarea>
+                @*@Html.TextAreaFor(model => model.NoiDung, new { @id= "edittor1", @class = "form-control", @row ="200"})
+                @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                <script>
                     CKEDITOR.replace("editor1");
-                </script>
+                </script>*@
             </div>
         </div>
 
