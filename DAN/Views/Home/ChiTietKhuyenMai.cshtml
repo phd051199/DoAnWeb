@@ -1,0 +1,21 @@
+﻿@model DAN.Models.Sale
+@{
+    ViewBag.Title = "Khuyến Mãi";
+}
+<div class="container">
+    <div class="row info pd">
+        @if (Model == null)
+        {
+            <div class="error">Có lỗi xảy ra! Vui lòng thử lại</div>
+        }
+        else
+        {
+            <div class="product">
+                <div class="title">@Model.Title</div>
+                <div class="product-desc">
+                    @Model.Content
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model DAN.Models.InvoiceViewModel
+@{
+    //ViewBag.Title = "Đơn hàng - " + Model.order?.OId;
+    //var paid = Model.order.Paid ? "<b style=\"color:green\">Đã thanh toán</b>" : "<b style=\"color:red\">Chưa thanh toán</b>";
+    //var status = Model.order.Status ? "<b style=\"color:green\">Đã hoàn thành</b>" : "<b style=\"color:red\">Chưa hoàn thành</b>";
+    var i = 1;
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">thông tin chi tiết: @Model.order.OId</div>
+        <div class="col-md3 col-sm-6 col-xs-12">
+            Mã đơn hàng: <b>@Model.order.OId</b><br />
+            Tổng giá trị: <b>@String.Format("{0:0,0}", Model.order.TotalPrice) VND</b><br />
+            @*Thanh toán: @Html.Raw(paid)<br />
+            Tình trạng: @Html.Raw(status)<br />*@
+            Hình thức thanh toán: @Model.order.PaidInfo
+        </div>
+        <div class="col-md-6 hidden-xs"></div>
+        <div class="col-md3 col-sm-6 col-xs-12">
+            Khách hàng: <b>@Model.order.Fullname</b><br />
+            Địa chỉ nhận hàng: <b>@Model.order.Address</b><br />
+            SĐT: <b>@Model.order.Phone</b>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="title">chi tiết sản phẩm</div>
+            @if (Model.orderDetail.Count() == 0)
+            {
+                <div class="error">Lỗi, không tải được sản phẩm</div>
+            }
+            else
+            {
+                <table align="center" border="1" cellspacing="0">
+                    <tr><th>STT</th><th>Tên SP</th><th>Số lượng</th><th>Thành tiền</th></tr>
+                    @foreach (var item in Model.orderDetail)
+                    {
+                        <tr><td>@i</td><td>@item.Pname</td><td>@item.Quantum</td><td>@String.Format("{0:0,0}", item.Price)</td></tr>
+                        i++;
+                    }
+                </table>
+            }
+        </div>
+        @*<div class="col-md-12 col-sm-12 col-xs-12">
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (!Model.order.Status)
+                {
+                    using (Html.BeginForm("Invoice", "Order", new { returnUrl = "/Order/Invoice/"+Model.order.OId },FormMethod.Post, new { @class = "my-form" }))
+                    {
+                        @Html.Hidden("key","status")
+                        @Html.Hidden("OId", Model.order.OId)
+                        <button>DUYỆT ĐƠN HÀNG NÀY</button>
+                    }
+                }
+                if (!Model.order.Paid)
+                {
+                    using (Html.BeginForm("Invoice", "Order", new { returnUrl = "/Order/Invoice/" + Model.order.OId }, FormMethod.Post, new { @class = "my-form" }))
+                    {
+                        @Html.Hidden("key", "paid")
+                        @Html.Hidden("OId", Model.order.OId)
+                        <button>XÁC NHẬN ĐƠN NÀY ĐÃ THANH TOÁN</button>
+                    }
+                }
+            }
+        </div>*@
+    </div>
+</div>
+

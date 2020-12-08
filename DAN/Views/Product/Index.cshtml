@@ -1,0 +1,123 @@
+﻿@model DAN.Models.ProductViewModel
+@{
+    ViewBag.Title = Model.product.Pname;
+    var count = 0;
+}
+<div class="container">
+    <div class="row info">
+        <div class="fx col-md-6 col-sm-6 col-xs-12">
+            <div id="wrap-slide">
+                <div id="slideshow">
+                    <ul>
+                        @foreach (var img in Model.image)
+                        {
+                            if (count == 0)
+                            {
+                                <li class="current">
+                                    <img src="@img.IType" width="500px" height="500px"><p>@Model.product.Pname</p>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <img src="/Product/GetImage/@img.Id" width="500px" height="500px"><p>@Model.product.Pname</p>
+                                </li>
+                            }
+                            count++;
+                        }
+                    </ul>
+                    <span id="prev">prev</span><span id="next">next</span>
+                    <p id="controlNav"></p>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="product">
+                    <div class="product-name lg">
+                        @Model.product.Pname
+                    </div>
+                    <div class="product-desc">
+                        @if (Model.product.Pdesc.Length >500)
+                        {
+                            @Model.product.Pdesc.Substring(0, 500)
+                        }
+                        else
+                        {
+                            @Model.product.Pdesc
+                        }
+                    </div>
+                    <div class="product-price">
+                        <span class="price">@String.Format("{0:0,0}", Model.product.SalePrice) VNĐ</span>
+                        @if (Model.product.Sale > 0)
+                        {
+                            <span class="pre-price"><span>@String.Format("{0:0,0}", Model.product.Price) VNĐ</span> -@Model.product.Sale%</span>
+                        }
+                    </div>
+                    <div class="product-number">
+                        Số lượng: <input type="number" id="number" name="number" value="1">
+                    </div>
+                    <div class="product-buy">
+                        <button class="add-cart" onclick="addCart(@Model.product.PId, $('#number').val())"><i class="glyphicon glyphicon-apple"></i> THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="description">
+                    <ul>
+                        <li>Chi tiết sản phẩm</li>
+                    </ul>
+                    <div class="detail-product">
+                        @Html.Raw(Model.product.Pdesc)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="description">
+                    <ul>
+                        <li>Đánh giá sản phẩm</li>
+                    </ul>
+                    <div class="comment">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="title">Sản phẩm tương tự</div>
+                @if (Model.related.Count() == 0)
+            {
+                    <div class="error">Không có sản phẩm nào tương tự!</div>
+                }
+                else
+                {
+                    foreach (var item in Model.related)
+                    {
+                        <div class="col-md-3 col-sm-4 col-xs-12 product">
+                            <div class="product-thumb" style="background-image: url(/Product/GetProductImage/@item.PId);">
+                                <div class="action">
+                                    <a href="/Product/Index/@item.PId"><button class="buy-now"><i class="glyphicon glyphicon-shopping-cart"></i> MUA NGAY</button></a><button class="add-cart"><i class="glyphicon glyphicon-plus"></i></button>
+                                </div>
+                            </div>
+                            @if (item.Sale > 0)
+                            {
+                                <div class="product-sale"><div class="sale">-@item.Sale%</div></div>
+                            }
+                            <div class="product-name">
+                                <a href="/Product/Index/@item.PId">@item.Pname</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="price">@String.Format("{0:0,0}", @item.Price) VNĐ</span>
+                                @if (item.Sale > 0)
+                                {
+                                    <span class="pre-price"><span>@String.Format("{0:0,0}",@item.Price) VND</span> -@item.Sale%</span>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="title">Sản phẩm đã xem</div>
+            </div>
+        </div>
+    </div>
+

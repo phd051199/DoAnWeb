@@ -1,0 +1,29 @@
+﻿@model DAN.Models.OrderViewModel
+@{
+    ViewBag.Title = "Xác nhận đơn hàng";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Xác nhận đơn hàng</div>
+        <div class="checkout">
+            <div class="confirm">
+                Xin chào bạn <b>@Model.fullName</b><br />
+                Chúng tôi đã nhận được thông tin đặt hàng của bạn. Xin vui lòng kiểm tra lại thông tin dưới đây một lần nữa<br />
+                Họ tên: <b>@Model.fullName</b><br />
+                Địa chỉ nhận hàng: <b>@Model.adress</b><br />
+                Số điện thoại: <b>@Model.phone</b><br />
+                Hình thức thanh toán: <b>@Model.PaidInfo</b><br />
+                @if (Model.email != null)
+                {
+                    @: Hóa đơn sẽ được gửi vào email <b>@Model.email</b><br />
+                }
+                Tổng giá trị đơn hàng: <b style="color: red;">@String.Format("{0:0,0}", ((List<DAN.Models.Product>)Session["Cart"]).Sum(e => e.Quantum * e.Price)) VND</b>
+                @using (Html.BeginForm("Done", "Order"))
+                {
+                    @Html.AntiForgeryToken()
+                    <button>XÁC NHẬN ĐƠN HÀNG</button> <a href="/Order">QUAY LẠI</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

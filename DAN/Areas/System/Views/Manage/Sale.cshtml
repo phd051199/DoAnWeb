@@ -1,0 +1,32 @@
+﻿@model List<DAN.Models.Sale>
+@{
+    ViewBag.Title = "Quản lí tin";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Danh sách tin </div>
+        <a href="AddSale"><button class="btn btn-success">Thêm mới</button></a>
+        @if (Model.Count() == 0)
+        {
+            <div class="error">Chưa có tin khuyến mãi nào!</div>
+        }
+        @foreach (var item in Model)
+        {
+            <div class="detail">
+                <b>@item.Title</b>
+                <p>
+                    @if (item.Content.Length > 200)
+                    {
+                        @item.Content.Substring(0, 200)
+                    }
+                    else
+                    {
+                        @item.Content
+                    }
+                </p>
+                <p><a href="EditSale/@item.Id/edit">Sửa</a>|<a href="EditSale/@item.Id/delete">Xóa</a></p>
+                <p>@item.CreatOn</p>
+            </div>
+        }
+    </div>
+</div>

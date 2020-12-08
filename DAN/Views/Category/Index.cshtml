@@ -1,0 +1,53 @@
+﻿@model DAN.Models.CategoryViewModel
+@{
+    ViewBag.Title = "Danh mục món ăn";
+}
+<div class="container">
+    <div id="category">
+        <div class="row">
+           
+            @if (Model.category == null)
+            {
+                <div class="error">Danh mục hiện đang trống!</div>
+            }
+            else if (Model.product.Count() == 0)
+            {
+                <div class="title">@Model.category.Cname</div>
+                <div class="error">Chưa có món ăn nào trong danh mục này!</div>
+            }
+            else
+            {
+                <div class="title" id="@Model.category.CId">@Model.category.Cname</div>
+                foreach (var item in Model.product)
+                {
+                   
+        <div class="col-md-3 col-sm-4 col-xs-12 product">
+            @*<div>
+                <img src="~/images/chuoi-say_s1166.jpg" height="300px" width="200px" />
+            </div>*@
+            <div class="product-thumb" style="background-image: url(/Product/GetProductImage/@item.PId);">
+                <div class="action">
+                    <a href="/Product/Index/@item.PId"><button class="buy-now"><i class="glyphicon glyphicon-shopping-cart"></i> MUA NGAY</button></a><button class="add-cart" onclick="addCart(@item.PId)"><i class="glyphicon glyphicon-plus"></i></button>
+                </div>
+            </div>
+            @if (item.Sale > 0)
+            {
+                <div class="product-sale"><div class="sale">-@item.Sale%</div></div>
+            }
+            <div class="product-name">
+                <a href="/Product/Index/@item.PId">@item.Pname</a>
+            </div>
+            <div class="product-price">
+                <span class="price">@String.Format("{0:0,0}", item.SalePrice) VND</span>
+                @if (item.Sale > 0)
+                {
+                    <span class="pre-price"><span>@String.Format("{0:0,0}", item.Price) VND</span> -1%</span>
+                }
+            </div>
+        </div>
+                }
+            }
+        </div>
+        @Html.Paging(Model.currentPage, Model.total, "loadCategory")
+    </div>
+</div>

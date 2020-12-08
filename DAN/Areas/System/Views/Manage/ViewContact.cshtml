@@ -1,0 +1,24 @@
+﻿@model DAN.Models.Contact
+@{
+    ViewBag.Title = "Khuyến Mãi";
+}
+<div class="container">
+    <div class="row info">
+        @if (Model == null)
+        {
+            <div class="error">Có lỗi xảy ra! Vui lòng thử lại</div>
+        }
+        else
+        {
+            <div class="product pd">
+                <div class="product-name lg">
+                    @Model.Subject
+                </div>
+                <p>Gửi từ: @Model.From</p>
+                <div class="product-desc">
+                    @Model.Message
+                </div>
+            </div>
+        }
+    </div>
+</div>

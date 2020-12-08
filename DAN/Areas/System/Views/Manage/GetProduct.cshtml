@@ -1,0 +1,15 @@
+﻿@model DAN.Models.IndexViewModel
+<div id="result"></div>
+@if (Model.product.Count() == 0)
+{
+    <div class="error">Chưa có sản phẩm nào!</div>
+}
+@foreach (var item in Model.product)
+{
+    <div class="detail">
+    <b>@item.Pname</b>
+    | Giá: @String.Format("{0:0,0}", item.Price) VND| Giá Đã KM: @String.Format("{0:0,0}", item.SalePrice) VND | KM: @item.Sale % | 
+    <a href="EditProduct/@item.PId/edit">Sửa</a> |
+    <a href="#" onclick="deleteProduct(@item.PId, '@item.Pname')">Xóa</a></div>
+}
+@Html.Paging(Model.currentPage, Model.total, "loadProduct")

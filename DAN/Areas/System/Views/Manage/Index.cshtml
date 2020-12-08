@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Trang quản trị";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Quản trị</div>
+        <div class="col-md-4 col-sm-5 col-xs-12">
+            <ul class="ul-admin">
+                <li><a href="@Url.Action("ThongKeDT")">Thống kê doanh thu</a></li>
+                <li><a href="@Url.Action("User")">Quản lý tài khoản</a></li>
+                <li><a href="@Url.Action("Category")">Quản lý danh mục</a></li>
+                <li><a href="@Url.Action("Product")">Quản lý sản phẩm</a></li>
+                <li><a href="@Url.Action("Sale")">Quản lý tin tức</a></li>
+                <li><a href="@Url.Action("Contact")">Góp ý của khách hàng</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 col-sm-7 col-xs-12">
+            <div id="order">
+            </div>
+        </div>
+    </div>
+</div>

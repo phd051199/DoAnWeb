@@ -1,0 +1,22 @@
+﻿@model UserViewModel
+@{
+    ViewBag.Title = "Thêm tài khoản";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Thêm tài khoản</div>
+        @using (Html.BeginForm("AddUser", "Manage", FormMethod.Post, new { @class = "my-form" }))
+        {
+            @Html.ValidationSummary(true)
+            @Html.AntiForgeryToken()
+            @Html.LabelFor(e => e.Uname)
+            @Html.ValidationMessageFor(e => e.Uname)
+            @Html.TextBoxFor(e => e.Uname)
+            @Html.LabelFor(e => e.Upass)
+            @Html.PasswordFor(e => e.Upass)
+            @Html.LabelFor(e => e.Rpass)
+            @Html.PasswordFor(e => e.Rpass)
+            <button>Thêm mới</button>
+        }
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@model DAN.Models.Order
+@{
+    ViewBag.Title = "Hoàn thành đặt hàng";
+}
+<div class="container">
+    <div class="row info">
+        <div class="checkout">
+            <div class="confirm">
+                Cảm ơn bạn đã đặt hàng. Mã đơn hàng của bạn là <b>@Model?.Id</b><br />
+                Kiểm tra đơn hàng của bạn tại: <a href="http://localhost:49278/Order/SearchInvoice">http://localhost:49278/Order/SearchInvoice</a><br />
+                Bạn có thể liên hệ hotline: <b>0354122468</b> để chúng tôi duyệt đơn hàng cho bạn sớm nhất có thể.<br />
+                Xin cảm ơn!
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+﻿@model CategoryViewModel
+@{
+    ViewBag.Title = "Thêm danh mục";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Thêm danh mục</div>
+        <div class="col-md-4 col-sm-3"></div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            @using (Html.BeginForm("AddCategory", "Manage", FormMethod.Post, new { @class = "my-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.LabelFor(e => e.Cname)
+                @Html.ValidationMessageFor(e => e.Cname)
+                @Html.TextBoxFor(e => e.Cname)
+                @Html.LabelFor(e => e.Cdesc)
+                @Html.ValidationMessageFor(e => e.Cdesc)
+                @Html.TextAreaFor(e => e.Cdesc,new {style = "width:100% !important;height: 100px ;"})
+                <button>Thêm mới</button>
+            }
+        </div>
+        <div class="col-md-4 col-sm-3">
+        </div>
+</div>

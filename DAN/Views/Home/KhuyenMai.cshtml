@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DAN.Models.Sale>
+@{
+    ViewBag.Title = "Tin tức";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Danh sách tin tức</div>
+        @foreach (var item in Model)
+        {
+        <div class="product pd">
+            <div class="product-name lg">
+                <a href="/Home/KhuyenMai/@item.Id">@item.Title</a>
+            </div>
+            <div class="product-desc">
+                @if (item.Content.Length > 100)
+                {
+                @item.Content.Substring(0, 100)
+                }
+                else
+                {
+                @item.Content
+                }
+            </div>
+        </div>
+        }
+    </div>
+</div>

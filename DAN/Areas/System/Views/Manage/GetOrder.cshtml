@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DAN.Models.Order>
+<div class="product-name lg">DANH SÁCH ĐƠN HÀNG</div>
+@if (Model.Count() == 0)
+{
+    <div class="error">Chưa có đơn hàng nào được đặt!</div>
+}
+@foreach (var item in Model)
+{
+    var paid = item.Paid ? "<b style=\"color:green\">Đã thanh toán</b>" : "<b style=\"color:red\">Chưa thanh toán</b>";
+    var status = item.Status ? "<b style=\"color:green\">Đã duyệt</b>" : "<b style=\"color:red\">Chưa duyệt</b>";
+    <div class="detail"><a href="/Order/Invoice/@item.OId">Mã đơn hàng: @item.OId</a> | @item.PaidInfo | @Html.Raw(paid) | @Html.Raw(status) | Tổng: @String.Format("{0:0,0}", item.TotalPrice) VND</div>
+}
+@Html.Paging((int)ViewBag.currentPage, (int)ViewBag.total, "loadOrder")

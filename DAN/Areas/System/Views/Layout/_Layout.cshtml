@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="~/assets/images/android-icon-36x36.png" />
+    <title>@ViewBag.Title - Admin</title>
+
+   
+    @Styles.Render("~/Styles/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header id="header">
+        @if (User.Identity.IsAuthenticated && User.Identity.Name == "admin")
+        {
+           <h3 style="float:left; #0094ff; border-radius: 20px; text-align: center;padding: 10px;margin-right: 20px;">Xin chào, @User.Identity.Name! <a style="background: #0094ff; border-radius: 20px; text-align: center;padding: 10px; color: #FFF;margin-right: 20px;" href="@Url.Action("Logout", "Home")">Thoát</a></h3>
+           <h3 style="float: right">
+            <a style="background: #0094ff; border-radius: 20px; text-align: center;padding: 10px; color: #FFF;margin-right: 20px;" href="@Url.Action("Index", "Manage")">
+                   Bảng điều khiển
+            </a>
+           </h3>
+        }
+        @*<a href="~/Areas/System/Views/Home/Login.cshtml">Đăng nhập </a>*@
+    </header>
+    <div id="content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/adminjs")
+    @Scripts.Render("~/bundles/bootstrap")
+    <footer class="copyright" style="text-align: center;">
+        <b style="color: white">&#169 Copyright PhamHuuDuy</b>
+    </footer>
+</body>
+</html>

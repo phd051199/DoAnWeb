@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DAN.Models.Contact>
+@{
+    ViewBag.Title = "Khuyến Mãi";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Góp ý khách hàng</div>
+        @foreach (var item in Model)
+        {
+            <div class="product pd">
+                <div class="product-name">
+                    <a href="Contact/@item.Id">
+                        @if (!item.Read.Value)
+                        {
+                            @item.Subject
+                        }
+                        else
+                        {
+                            <b style="color:green;">@item.Subject</b>
+                        }
+                    </a>
+                </div>
+            </div>
+            <div class="product-desc">
+                @if (item.Message.Length > 100)
+                {
+                    @item.Message.Substring(0, 100)
+                }
+                else
+                {
+                    @item.Message
+                }
+            </div>
+        }
+    </div>
+</div>

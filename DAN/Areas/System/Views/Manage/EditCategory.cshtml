@@ -1,0 +1,26 @@
+﻿@model CategoryViewModel
+@{
+    ViewBag.Title = "Sửa "+Model.Cname;
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Sửa @Model.Cname - ID: @Model.CId</div>
+        <div class="col-md-4 col-sm-3"></div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            @using (Html.BeginForm("EditCategory", "Manage", FormMethod.Post, new { @class = "my-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(e => e.CId, new { @value = Model.CId})
+                @Html.LabelFor(e => e.Cname)
+                @Html.ValidationMessageFor(e => e.Cname)
+                @Html.TextBoxFor(e => e.Cname, new { @value = Model.Cname })
+                @Html.LabelFor(e => e.Cdesc)
+                @Html.ValidationMessageFor(e => e.Cdesc)
+                @Html.TextAreaFor(e => e.Cdesc, new { @value = Model.Cdesc })
+                <button>Lưu thay đổi</button>
+            }
+        </div>
+        <div class="col-md-4 col-sm-3">
+        </div>
+</div>

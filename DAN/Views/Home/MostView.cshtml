@@ -1,0 +1,37 @@
+﻿@model DAN.Models.IndexViewModel
+<div class="row">
+    <div class="title"  style="border-radius: 40px;">Sản phẩm xem nhiều</div>
+    @if (Model.product.Count() == 0)
+    {
+        <div class="error">Chưa có sản phẩm nào!</div>
+    }
+    @foreach (var item in Model.product)
+    {
+        <div class="col-md-3 col-sm-4 col-xs-12 product">
+            <div class="product-thumb" style="background-image: url(/Product/GetProductImage/@item.PId);">
+                @*<div>
+                    <img src="~/images/bo-dam_s1069.png" alt="Alternate Text"  height="200px"  width="auto"/>
+                </div>*@
+                <div class="action">
+                    <a href="/Product/Index/@item.PId"><button class="buy-now"><i class="glyphicon glyphicon-shopping-cart"></i> MUA NGAY</button></a><button class="add-cart" onclick="addCart(@item.PId)"><i class="glyphicon glyphicon-plus"></i></button>
+                </div>
+            </div>
+            @if (item.Sale > 0)
+                {
+                <div class="product-sale"><div class="sale">-@item.Sale%</div></div>
+            }
+            <div class="product-name">
+                <a href="/Product/Index/@item.PId">@item.Pname</a>
+            </div>
+            <div class="product-price">
+                <span class="price">@String.Format("{0:0,0}", item.SalePrice) VNĐ</span>
+                @if (item.Sale > 0)
+                {
+                    <span class="pre-price"><span>@String.Format("{0:0,0}", item.Price) VNĐ</span> -@item.Sale%</span>
+                }
+            </div>
+        </div>
+    }
+</div>
+    @Html.Paging(Model.currentPage, Model.total, "loadMostView")
+

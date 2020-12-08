@@ -1,0 +1,32 @@
+﻿@model ProductViewModel
+@{
+    ViewBag.Title = "Thêm danh mục";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Thêm danh sản phẩm mới</div>
+        @using (Html.BeginForm("AddProduct", "Manage", FormMethod.Post, new { @class = "my-form", enctype = "multipart/form-data" }))
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.LabelFor(e => e.Pname)
+            @Html.ValidationMessageFor(e => e.Pname)
+            @Html.TextBoxFor(e => e.Pname)
+            @Html.LabelFor(e => e.Pdesc)
+            @Html.ValidationMessageFor(e => e.Pdesc)
+            @Html.TextAreaFor(e => e.Pdesc,new {style = "width:50% !important;height: 100px ;"})
+            @Html.LabelFor(e => e.Price)
+            @Html.ValidationMessageFor(e => e.Price)
+            @Html.TextBoxFor(e => e.Price)
+            @Html.LabelFor(e => e.Sale)
+            @Html.ValidationMessageFor(e => e.Sale)
+            @Html.TextBoxFor(e => e.Sale)
+            @Html.LabelFor(e => e.CId)
+            @Html.DropDownListFor(e => e.CId, new SelectList(Model.category, "CId", "Cname"))
+            @Html.Label("Hình ảnh (có thể tải lên cùng lúc nhiều ảnh):")
+            @Html.TextBoxFor(e => e.image, "", new { @type = "file" , @multiple = "multiple" })
+            @*<input  type="file" id="file" />*@
+            <button>Thêm mới</button>
+        }
+    </div>
+</div>

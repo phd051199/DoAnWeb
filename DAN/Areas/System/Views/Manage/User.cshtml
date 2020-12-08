@@ -1,0 +1,22 @@
+﻿@model List<DAN.Models.User>
+@{
+    ViewBag.Title = "Quản lý tài khoản";
+  
+}
+
+<div class="container">
+    <div class="row info">
+        <div class="title">Danh sách tài khoản </div>
+        <a href="AddUser"><button class="btn btn-success">Thêm mới</button></a>
+        @foreach (var item in Model)
+        {
+    <div class="detail">
+        <b>@item.Uname</b>|
+        <b>@item.Upass</b>
+        <p><a href="EditUser/@item.UId/edit">Sửa</a>|<a href="EditUser/@item.UId/delete">Xóa</a></p>
+    </div>
+        }
+    </div>
+</div>
+
+

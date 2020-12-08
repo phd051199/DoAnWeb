@@ -1,0 +1,114 @@
+﻿@model DatetimeViewModel
+@{
+    ViewBag.Title = "Thống kê";
+}
+
+<div id="piechart"></div>
+<script src="~/assets/Scripts/loader.js"></script>
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Work', 8],
+            ['Eat', 2],
+            ['TV', 4],
+            ['Gym', 2],
+            ['Sleep', 8]
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = { 'title': 'My Average Day', 'width': 600, 'height': 500 };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+<script src="~/assets/Scripts/canvasjs.min.js"></script>
+<script type="text/javascript">
+
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2",
+                animationEnabled: true,
+                title: {
+                    text: "Thống kê doanh thu tháng: " + @ViewBag.defaulDate 
+                },
+                subtitles: [
+                    { text: "" }
+                ],
+                data: [
+                    {
+                        type: "column", //change type to bar, line, area, pie, etc
+                        dataPoints:@Html.Raw(ViewBag.DataPoints)
+                        //dataPoints: [
+                        //    { x: 10, y: 71 },
+                        //    { x: 20, y: 55 },
+                        //    { x: 30, y: 50 },
+                        //    { x: 40, y: 65 },
+                        //    { x: 50, y: 95 },
+                        //    { x: 60, y: 68 },
+                        //    { x: 70, y: 28 },
+                        //    { x: 80, y: 34 },
+                        //    { x: 90, y: 14 }
+                        //]
+                    }
+                ]
+            });
+            chart.render();
+        };
+</script>
+
+
+@*<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>*@
+
+
+<div class="container">
+    @using (Html.BeginForm("ThongKeTheoThang", "Manage", FormMethod.Post, new { @class = "" }))
+    {
+    <div class="form-inline">
+        <label for="exampleFormControlSelect1">Chọn tháng</label>
+        @Html.DropDownListFor(m => m.value, new List<SelectListItem>
+               { new SelectListItem{Text="Tháng 1", Value="1"},
+                 new SelectListItem{Text="Tháng 2", Value="2"},
+                 new SelectListItem{Text="Tháng 3", Value="3"},
+                 new SelectListItem{Text="Tháng 4", Value="4"},
+                 new SelectListItem{Text="Tháng 5", Value="5"},
+                 new SelectListItem{Text="Tháng 6", Value="6"},
+                 new SelectListItem{Text="Tháng 7", Value="7"},
+                 new SelectListItem{Text="Tháng 8", Value="8"},
+                 new SelectListItem{Text="Tháng 9", Value="9"},
+                 new SelectListItem{Text="Tháng 10", Value="10"},
+                 new SelectListItem{Text="Tháng 11", Value="11"},
+                 new SelectListItem{Text="Tháng 12", Value="12"}}, "Chọn tháng")
+        @*<select class="form-control" id="exampleFormControlSelect1">
+            <option value="1">Tháng 1</option>
+            <option value="2">Tháng 2</option>
+            <option value="3">Tháng 3</option>
+            <option value="4">Tháng 4</option>
+            <option value="5">Tháng 5</option>
+            <option value="6">Tháng 6</option>
+            <option value="7">Tháng 7</option>
+            <option value="8">Tháng 8</option>
+            <option value="9">Tháng 9</option>
+            <option value="10">Tháng 10</option>
+            <option value="11">Tháng 11</option>
+            <option value="12">Tháng 12</option>
+        </select>*@
+        <button type="submit" class="btn btn-primary mb-2">Tìm kiếm</button>
+        <h3 style="text-align:center;"> Tổng thu tháng:  @String.Format("{0:0,0}", ViewBag.sumPrice1)  VNĐ</h3>
+    </div>
+    }
+</div>
+<hr />
+
+<div id="chartContainer">
+</div>
+

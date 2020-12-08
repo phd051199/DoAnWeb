@@ -1,0 +1,37 @@
+﻿@model ProductViewModel
+@{
+    ViewBag.Title = "Sửa sản phẩm";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Sửa: @Model.Pname</div>
+        @using (Html.BeginForm("EditProduct", "Manage", FormMethod.Post, new { @class = "my-form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(e => e.PId, new { @value = Model.PId})
+            @Html.LabelFor(e => e.Pname)
+            @Html.ValidationMessageFor(e => e.Pname)
+            @Html.TextBoxFor(e => e.Pname, new { @value = Model.Pname })
+            @Html.LabelFor(e => e.Pdesc)
+            @Html.ValidationMessageFor(e => e.Pdesc)
+            @Html.TextAreaFor(e => e.Pdesc, new { @value = Model.Pdesc })
+            @Html.LabelFor(e => e.Price)
+            @Html.ValidationMessageFor(e => e.Price)
+            @Html.TextBoxFor(e => e.Price, new { @value = Model.Price })
+            @Html.LabelFor(e => e.Sale)
+            @Html.ValidationMessageFor(e => e.Sale)
+            @Html.TextBoxFor(e => e.Sale, new { @value = Model.Sale })
+            @Html.LabelFor(e => e.CId)
+            @Html.DropDownListFor(e => e.CId, new SelectList(Model.category, "CId", "Cname", Model.CId))
+            <div class="product">
+                @foreach (var i in Model.img)
+                {
+                    <div class="edit-thumb" style="width: 80px; height: 80px; float: left; background-image: url(/Product/GetImage/@i.Id)"></div>
+
+                }
+            </div>
+            <button>Lưu thay đổi</button>
+        }
+    </div>
+</div>

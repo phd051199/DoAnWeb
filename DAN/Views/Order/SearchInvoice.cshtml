@@ -1,0 +1,21 @@
+﻿@model DAN.Models.SearchInvoiceModel
+@{
+    ViewBag.Title = "Tìm kiếm đơn hàng";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Tìm kiếm đơn hàng</div>
+        <center>
+            @using (Html.BeginForm("SearchInvoice", "Order", FormMethod.Post, new { @class = "my-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.LabelFor(e => e.OId)
+                @Html.ValidationMessageFor(e => e.OId)
+                @Html.TextBoxFor(e => e.OId)
+                <button> Tìm kiếm</button>
+            }
+        </center>
+    </div>
+</div>
+

@@ -1,0 +1,56 @@
+﻿@model DAN.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "Tiến hành đặt hàng";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title ">Tiến hành đặt hàng</div>
+        @using (Html.BeginForm("Confirm", "Order", FormMethod.Post, new { @class = "my-form" }))
+        {
+    <div class="col-md-6 col-sm-6 col-xs-12">
+     
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.LabelFor(e => e.fullName)
+            @Html.ValidationMessageFor(e => e.fullName)
+            @Html.TextBoxFor(e => e.fullName, new { @value = Session["User"] != null ? Model.fullName : "" })
+
+            @Html.LabelFor(e => e.adress)
+            @Html.ValidationMessageFor(e => e.adress)
+            @Html.TextBoxFor(e => e.adress, new { @value = Session["User"] != null ? Model.adress : "" })
+
+            @Html.LabelFor(e => e.phone)
+            @Html.ValidationMessageFor(e => e.phone)
+            @Html.TextBoxFor(e => e.phone, new { @value = Session["User"] != null ? Model.phone : 0 })
+
+            @Html.LabelFor(e => e.email)
+            @Html.ValidationMessageFor(e => e.email)
+            @Html.TextBoxFor(e => e.email, new { @value = Session["User"] != null ? Model.email : "" })
+
+            @Html.LabelFor(e => e.Code)
+            @Html.ValidationMessageFor(e => e.Code)
+            @Html.TextBoxFor(e => e.Code)
+        
+        <button>ĐẶT HÀNG NGAY</button>
+    </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Phương thức thanh toán</label>
+                <div class="checkout">
+                    <div class="payment-type">
+                        @Html.RadioButtonFor(e => e.PaidInfo, "Thanh toán online", new { @checked = "true" })
+                        <span>Thanh toán online</span>
+                    </div>
+                    @*<div class="payment-type">
+                        @Html.RadioButtonFor(e => e.PaidInfo,"COD - Thanh toán khi nhận hàng")
+                        <span>COD - Thanh toán khi nhận hàng</span>
+                    </div>*@
+                    <div class="payment-type">
+                        <span>Tổng đơn hàng: <b style="color: red">@String.Format("{0:0,0}", ((List<DAN.Models.Product>)Session["Cart"]).Sum(e => e.Quantum * e.Price)) VND</b></span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

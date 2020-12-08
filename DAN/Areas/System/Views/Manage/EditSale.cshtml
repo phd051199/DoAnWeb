@@ -1,0 +1,23 @@
+﻿@model SaleViewModel
+@{
+    ViewBag.Title = "Sửa tin tức ";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Sửa tin</div>
+        @using (Html.BeginForm("EditSale", "Manage", FormMethod.Post, new { @class = "my-form" }))
+        {
+            @Html.ValidationSummary(true)
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(e => e.Id, new { @value = Model.Id })
+            @Html.LabelFor(e => e.Title)
+            @Html.ValidationMessageFor(e => e.Title)
+            @Html.TextBoxFor(e => e.Title, new { @value = Model.Title })
+            @Html.LabelFor(e => e.Content)
+            @Html.ValidationMessageFor(e => e.Content)
+            @Html.TextAreaFor(e => e.Content, new { @value = Model.Title })
+            <button>Lưu thay đổi</button>
+        }
+    </div>
+</div>
+

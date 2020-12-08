@@ -1,0 +1,27 @@
+﻿@model DAN.Models.ContactViewModel
+@{
+    ViewBag.Title = "Liên hệ";
+}
+<div class="container">
+    <div class="row info">
+        <div class="title">Liên hệ</div>
+        @using (Html.BeginForm("LienHe", "Home", FormMethod.Post, new { @class = "my-form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.LabelFor(e => e.From)
+            @Html.ValidationMessageFor(e => e.From)
+            @Html.TextBoxFor(e => e.From)
+
+            @Html.LabelFor(e => e.Subject)
+            @Html.ValidationMessageFor(e => e.Subject)
+            @Html.TextBoxFor(e => e.Subject)
+
+            @Html.LabelFor(e => e.Message)
+            @Html.ValidationMessageFor(e => e.Message)
+            @Html.TextBoxFor(e => e.Message)
+            <button>GỬI Ý KIẾN</button>
+        }
+    </div>
+</div>
+

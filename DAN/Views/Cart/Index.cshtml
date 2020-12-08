@@ -1,0 +1,38 @@
+﻿@model DAN.Models.CartViewModel
+@{
+    ViewBag.Title = "Giỏ hàng";
+}
+
+
+<div class="container">
+    <div class="row info">
+        <div class="title">Giỏ hàng</div>
+        <div class="cart">
+            <div class="cart-product">
+            @if (Model.product.Count == 0)
+            {
+                <div class="error">Giỏ hàng đang trống! <a href="/Home">Tiếp tục mua hàng</a></div>
+            }
+            else
+            {
+                foreach (var item in Model.product)
+                {
+                    <div class="detail">
+                        <div class="thumb" style="background-image: url(/Product/GetProductImage?itemId=@item.PId);"></div>
+                        <div style="float:left;">
+                            <span class="name"><a href="/Product?itemId=@item.PId">@item.Pname</a></span>
+                            <span class="number">Số lượng: @item.Quantum x <span style="color:red;">@String.Format("{0:0,0}", item.SalePrice) VND</span></span>
+                        </div>
+                        <a href="/Cart/RemoveCart?itemId=@item.PId&returnUrl=/Cart"><span class="delete">&times;</span></a>
+                    </div>
+                }
+            }
+            </div>
+            <div class="cart-action">
+                <span>Tổng: </span> <span style="color:red; font-weight: bold;">@String.Format("{0:0,0}", Model.product.Sum(e => e.Quantum * e.SalePrice)) VND</span>
+                <a href="/Order" title=""><button>Thanh toán ngay</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+

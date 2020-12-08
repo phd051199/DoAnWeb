@@ -1,0 +1,33 @@
+﻿@model DAN.Areas.System.Models.LoginViewModel
+@{
+    ViewBag.Title = "Đăng nhập";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-3 hidden-xs"></div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="title">Đăng nhập quản trị</div>
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "my-form" }))
+            {
+                @Html.AntiForgeryToken();
+                @Html.ValidationSummary(true)
+                @Html.LabelFor(e => e.Uname)
+                @Html.ValidationMessageFor(e => e.Uname)
+                @Html.TextBoxFor(e => e.Uname)
+                @Html.LabelFor(e => e.Upass)
+                @Html.ValidationMessageFor(e => e.Upass)
+                @Html.PasswordFor(e => e.Upass)
+                <div class="">
+                    <div class="col-lg-8">
+                        <button>Đăng nhập</button>
+                    </div>
+                    <div class="col-lg-4" style="padding-top: 15px;">
+                        <a style="background-color: #0094ff; padding: 10px; border-radius: 10px;color: #FFF; font-weight: bold;" href="@Url.Action("Register", "Home")">Đăng ký</a>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="col-md-4 col-sm-3 hidden-xs"></div>
+    </div>
+</div>
